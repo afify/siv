@@ -11,4 +11,4 @@ CFLAGS   = -std=c99 -pedantic -Wextra -Wall -Wno-unused-parameter -Os ${CPPFLAGS
 LDFLAGS  = -lX11 -ljpeg -lpng -s
 
 # compiler and linker
-CC = cc
+CC = clang

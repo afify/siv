@@ -1,11 +1,14 @@
-#include <X11/Xlib.h>
-#include <X11/keysym.h>
-#include <ctype.h>
-#include <png.h>
+/* See LICENSE file for copyright and license details. */
+
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 #include <unistd.h>
+#include <ctype.h>
+#include <png.h>
+#include <string.h>
+
+#include <X11/Xlib.h>
+#include <X11/keysym.h>
 
 #include "image_viewer.h"
 #include "utils.h"
@@ -112,8 +115,8 @@ load_png(ImageViewer *image_viewer, const char *filename)
 	png_bytep *row_pointers =
 		(png_bytep *)malloc(sizeof(png_bytep) * image_viewer->height);
 	for (int y = 0; y < image_viewer->height; y++) {
-		row_pointers[y] = image_viewer->ximage->data +
-			y * image_viewer->ximage->bytes_per_line;
+		row_pointers[y] = (png_bytep)(image_viewer->ximage->data +
+			y * image_viewer->ximage->bytes_per_line);
 	}
 
 	png_read_image(image_viewer->png_ptr, row_pointers);
@@ -159,7 +162,7 @@ main(int argc, char **argv)
 		}
 	}
 
-	if (x_value < 0 || y_value < 0 ) {
+	if (x_value < 0 || y_value < 0) {
 		fprintf(stderr, "Both -x and -y flags are mandatory.\n");
 		return 1;
 	}

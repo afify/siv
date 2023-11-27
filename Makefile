@@ -49,6 +49,9 @@ uninstall:
 	rm -f ${DESTDIR}${PREFIX}/bin/${BIN}\
 		${DESTDIR}${MANPREFIX}/man1/${BIN}.1
 
+test:
+	./siv -f ./siv.png -x 200 -y 200
+
 format:
 	clang-format -style=file -i ${BIN}.c jpeg_utils.c png_utils.c x.c
 

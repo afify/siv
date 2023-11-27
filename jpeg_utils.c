@@ -1,8 +1,8 @@
+#include "jpeg_utils.h"
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <jpeglib.h>
-
-#include "jpeg_utils.h"
 void
 load_jpeg(const char *filename, ImageViewer *image_viewer)
 {

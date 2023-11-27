@@ -2,12 +2,13 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
-#include <X11/Xatom.h>
-#include <X11/Xlib.h>
-#include <X11/keysym.h>
 #include <jpeglib.h>
 #include <png.h>
+#include <string.h>
+
+#include <X11/Xlib.h>
+#include <X11/Xatom.h>
+#include <X11/keysym.h>
 
 #include "image_viewer.h"
 
@@ -38,6 +39,7 @@ create_window(
 			image_viewer->black_pixel, /* border pixel */
 			image_viewer->white_pixel /* background */
 		);
+	XStoreName(image_viewer->display, image_viewer->window, "siv");
 
 	Atom wm_type = XInternAtom(
 		image_viewer->display, "_NET_WM_WINDOW_TYPE", False);

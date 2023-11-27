@@ -1,11 +1,13 @@
-#include <stdlib.h>
+/* See LICENSE file for copyright and license details. */
+
 #include <stdio.h>
+#include <stdlib.h>
 #include <unistd.h>
 #include <png.h>
 
 #include <X11/Xlib.h>
-#include <X11/Xatom.h>
 #include <X11/ImUtil.h>
+#include <X11/Xatom.h>
 #include <X11/Xutil.h>
 #include <X11/keysym.h>
 
